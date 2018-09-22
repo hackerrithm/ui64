@@ -27,6 +27,7 @@ const loginIsLoading = (bool: boolean) => {
 export const loginUser = (username: string, password: string) => {
 	return async (dispatch: any) => {
 		dispatch(loginIsLoading(true));
+		dispatch(loginHasError(false));
 
 		if (!username || !password) {
 			await dispatch(loginHasError(true));
@@ -50,12 +51,14 @@ export const loginUser = (username: string, password: string) => {
 				}
 			})
 			.catch(e => {
+				dispatch(loginIsLoading(false));
+				dispatch(isLogged(false));
 				dispatch(loginHasError(true));
 			});
 	};
 };
 
-const logout = () => {
+export const logout = () => {
 	localStorage.removeItem("token");
 	return {
 		type: ActionTypes.LOGOUT

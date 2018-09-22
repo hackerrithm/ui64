@@ -7,7 +7,7 @@ import {
 	IconButton,
 	Toolbar,
 	Typography
-} from '@material-ui/core';
+	} from '@material-ui/core';
 import { connect } from 'react-redux';
 import { default as MenuIcon } from '@material-ui/icons/Menu';
 import { NavLink } from 'react-router-dom';
@@ -114,7 +114,7 @@ class Navigation extends React.Component<any, NavigationBarState, any> {
 								πxl
               </NavLink>
 						</Typography>
-						{/* {this.state.isAuthenticated && (
+						{this.state.isAuthenticated && (
 							<NavLink
 								style={{ textDecoration: "none", color: "white" }}
 								to="/tools"
@@ -172,7 +172,7 @@ class Navigation extends React.Component<any, NavigationBarState, any> {
 									Logout
                 </Button>
 							</NavLink>
-						)} */}
+						)}
 					</Toolbar>
 				</AppBar>
 			</div>

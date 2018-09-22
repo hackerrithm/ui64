@@ -1,8 +1,7 @@
-import React from "react";
-import withStyles from "@material-ui/core/styles/withStyles";
-import { Button, Icon, TextField } from "@material-ui/core";
-import { IProps, IState } from "./types";
-// import { connect } from "react-redux";
+import React from 'react';
+import withStyles from '@material-ui/core/styles/withStyles';
+
+// import { IProps, IState } from './types';
 const styles: any = (theme: any) => ({
 	container: {
 		display: "flex",
@@ -21,63 +20,34 @@ const styles: any = (theme: any) => ({
 	}
 });
 
-class LoginView extends React.Component<IProps, IState> {
-	constructor(props: IProps){
+export interface Props {
+	username: string;
+	password: string;
+	onLogin: Function;
+	onChange: any;
+	loginForm: any;
+}
+
+export interface State {
+	username: string;
+	password: string;
+}
+
+class LoginView extends React.Component<Props, State> {
+	constructor(props: Props) {
 		super(props);
 	}
 	render() {
 
-		const { classes, onChange, username, password }:any = this.props;
+		const { classes }: any = this.props;
 		// let { username, password} = state;
 		return (
 			<div className={classes.root}>
-			<form onSubmit={() => {this.props.loginUser} }>
-				<div className="form-group">
-					<TextField
-						id="username"
-						label="Username"
-						className={classes.textField}
-						margin="normal"
-						// error={this.state.usernameError !== undefined}
-						aria-describedby="username-error-text"
-						name="username"
-						onChange={onChange}
-						value={username}
-					/>
-				</div>
-				<div className="form-group">
-					<TextField
-						id="password"
-						label="Password"
-						className={classes.textField}
-						margin="normal"
-						// error={this.state.passwordError !== undefined}
-						aria-describedby="password-error-text"
-						name="password"
-						type="password"
-						onChange={onChange}
-						value={password}
-					/>
-				</div>
-				<div className="form-group">
-					<Button
-						type="submit"
-						variant="contained"
-						color="primary"
-						className={classes.button}
-						// onClick={() => loginUser('admin', 'password')}
-					>
-						Login
-		  <Icon className={classes.rightIcon}>send</Icon>
-					</Button>
-				</div>
-			</form>
-		</div>
+				{this.props.loginForm}
+			</div>
 		)
 	}
 }
 export default (withStyles(styles, { withTheme: true })(LoginView))
 
 
-
-// export default connect(mapStateToProps, mapDispatch)(Login);

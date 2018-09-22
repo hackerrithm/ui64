@@ -6,6 +6,7 @@ import { localPoint } from "@vx/event";
 import { scaleTime, scaleLinear } from "@vx/scale";
 import { extent, max, bisector } from "d3-array";
 import { timeFormat } from "d3-time-format";
+import axios from "axios";
 
 const styles = (theme: any) => ({
     flex: {
@@ -58,6 +59,18 @@ class CryptoChart extends React.Component<any, any> {
                 };
             }),
         });
+
+        await this.onStart();
+    }
+
+    async onStart() {
+        await axios.get("https://min-api.cryptocompare.com/data/pricemulti?fsyms=ETH,BTC,IOT,DASH&tsyms=BTC,USD,EUR")
+            .then(res => {
+                console.log("res: " + JSON.stringify(res, null, 4))
+            })
+            .catch(e => {
+                console.log("e:: " + e)
+            })
     }
 
     public handleTooltip = (event:any, data:any, xSelector:any, xScale:any, yScale:any) => {

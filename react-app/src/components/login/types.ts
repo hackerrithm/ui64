@@ -9,14 +9,17 @@ interface IDefaultProps extends RouteComponentProps<{}> {
 export interface IProps extends Partial<IDefaultProps> {
     // id: any;
     // text: string;
-    // history?:any
+    history?:any
     // isLoginPending?: boolean;
     // isLoginSuccess?: boolean;
-    // loginError?: string;
-    username?: any;
-    password?: any;
+    loginError?: string;
+    isLogged?:boolean;
+    hasError?:boolean;
+    username?: string;
+    password?: string;
     // login(email: string, password: string): void;
     loginUser?: Function;
+    onLogin?: Function;
     onChange?: any
     // readonly dispatch: Function;
 }

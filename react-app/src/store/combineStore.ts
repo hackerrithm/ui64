@@ -10,9 +10,13 @@
 //   )
 // );
 import { combineReducers } from 'redux';
-import login from "../app/user/login/reducer";
+import loginReducer from "../app/user/login/reducer";
+import counter from "../components/hello/reducers/index";
 
-export default combineReducers({
-    loginReducer: login,
-})
+const rootReducer = combineReducers({
+    loginReducer,
+    counter,                   // key name same as the carefully renamed named export
+});
+
+export default rootReducer;
 

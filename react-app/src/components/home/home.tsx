@@ -34,6 +34,7 @@ import withStyles from "@material-ui/core/styles/withStyles";
 
 // import { Counter } from '../counter/counter.container';
 import CryptoChart from '../chart/index'
+import Hello from '../hello/components/Hello'
 // import AsyncApp from '../reddit/reddit.container';
 const styles = (theme: any) => ({
   // img: {
@@ -279,10 +280,13 @@ class Home extends React.Component<IMyComponentProps, IMyComponentState, any> {
             </Grid>
             <Grid item={true} xs={12} sm={4}>
               {/* ignored */}
+              
             </Grid>
+            <Hello name="kemar" />
+            {/* <CryptoChart /> */}
           </Grid>
         {/* )} */}
-        <CryptoChart />
+        
       </div>
     );
   }
